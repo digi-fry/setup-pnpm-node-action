@@ -1,4 +1,4 @@
-name: 'Setup pnpm'
+name: 'Setup PNPM and Node.js Action'
 description: 'Setup pnpm cache and install dependencies'
 branding:
   icon: 'package'
