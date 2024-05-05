@@ -1,6 +1,8 @@
 name: 'Setup pnpm'
 description: 'Setup pnpm cache and install dependencies'
-icon: 'check'
+branding:
+  icon: 'package'
+  color: 'blue'
 
 inputs:
   node-version:
