@@ -11,6 +11,10 @@ inputs:
   pnpm-version:
     description: 'Version of pnpm to setup'
     required: true
+  install:
+    description: 'Flag to install dependencies'
+    required: false
+    default: 'true'
 
 runs:
   using: 'composite'
@@ -38,9 +42,10 @@ runs:
       with:
         path: ${{ env.STORE_PATH }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
 
     - name: Install dependencies
       shell: bash
-      run: pnpm install
+      run: |
+        if [ "${{ inputs.install }}" = "true" ]; then
+          pnpm install
+        fi
