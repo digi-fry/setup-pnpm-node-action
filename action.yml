@@ -42,6 +42,6 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        if [ "${{ inputs.install }}" = "true" ] || [ "${{ steps.cache.outputs.cache-hit }}" != "true" ]; then
+        if [ "${{ inputs.install }}" = "true" ] && [ "${{ steps.cache.outputs.cache-hit }}" != "true" ]; then
           pnpm install
         fi
